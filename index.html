@@ -16,6 +16,7 @@
 
         <link rel="stylesheet" href="css/reveal.css">
         <link rel="stylesheet" href="css/theme/moon.css" id="theme">
+        <link rel="stylesheet" href="lib/leaflet/leaflet.css">
         <link rel="stylesheet" href="css/pres.css">
 
         <!-- Code syntax highlighting -->
@@ -109,6 +110,32 @@
                     </pre>
                 </section>
                 <section>
+                    <pre class="stretch highlight javascript">
+<span class="fragment zoom-in highlight-current-green">var map = L.map('map');</span>
+
+<span class="fragment zoom-in highlight-current-green">L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+})<span class="fragment zoom-in highlight-current-green">.addTo(map)</span></span>;
+                    </pre>
+                </section>
+                <section data-state="broken-map">
+                    <div id="broken-map" class="map"></div>
+                </section>
+                <section>
+                    <pre class="stretch highlight javascript">
+var map = L.map('map');
+
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+<span class="fragment zoom-in highlight-current-green">map.setView([57.7, 11.96], 13);</span>
+                    </pre>
+                </section>
+                <section data-state="working-map">
+                    <div id="working-map" class="map"></div>
+                </section>
+                <section>
                     <aside class="notes">
                         X Prerequisites
                             * HTML
@@ -141,6 +168,8 @@
 
         <script src="lib/js/head.min.js"></script>
         <script src="js/reveal.js"></script>
+        <script src="js/maps.js"></script>
+        <script src="lib/leaflet/leaflet.js"></script>
 
         <script>
 
@@ -167,6 +196,21 @@
                 ]
             });
 
+            function runOnState(state, o) {
+                Reveal.addEventListener(state, function(e) {
+                    var removeListener = function() {
+                        o.stop();
+                        Reveal.removeEventListener('slidechanged', removeListener);
+                    }
+                    o.start();
+                    setTimeout(function() {
+                        Reveal.addEventListener('slidechanged', removeListener);
+                    }, 0);
+                });
+            }
+
+            runOnState('broken-map', window.brokenMap);
+            runOnState('working-map', window.workingMap);
         </script>
 
     </body>
