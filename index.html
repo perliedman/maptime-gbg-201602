@@ -136,15 +136,48 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                     <div id="working-map" class="map"></div>
                 </section>
                 <section>
+                    Coordinates
+                </section>
+                <section data-state="layers-map">
+                    <div id="layers-map" class="map-compact"></div>
+                    <pre id="layers-map-code" class="stretch highlight javascript"></pre>
+                    <aside class="notes">
+                        Interactive demo of different layer types
+                            * Baselayers
+                            * Markers
+                            * Vector layers
+                                * point
+                                * polyline
+                                * polygon
+                                * circle
+                            * Rearranging layers
+                            * Layers for styling
+                            * Popups
+                    </aside>
+                </section>
+                <section>
+                    Storing a lot of vector layers - GeoJSON
+                </section>
+                <section>
+                    Interaction &amp; events
+                </section>
+                <section>
+                    Plugins
+                </section>
+                <section>
+                    Leaflet Underneath
+                </section>
+                <section>
                     <aside class="notes">
                         X Prerequisites
                             * HTML
                             * JavaScript
                             * Object oriented programming
                         * What is Leaflet
-                        * Map
+                        X Map
                             * Container
                             * Factory functions vs. constructors
+                        * Docs
                         * Layers
                         * Baselayer, background layer
                             * static, things that don't change
@@ -211,6 +244,7 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 
             runOnState('broken-map', window.brokenMap);
             runOnState('working-map', window.workingMap);
+            runOnState('layers-map', window.layersMap);
         </script>
 
     </body>

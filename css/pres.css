@@ -8,6 +8,11 @@
     height: 480px;
 }
 
+.map-compact {
+    width: 960px;
+    height: 320px;
+}
+
 .leaflet-fade-anim .leaflet-tile, .leaflet-fade-anim .leaflet-popup {
     -webkit-transition: opacity 0.2s linear !important;
     -moz-transition: opacity 0.2s linear !important;
