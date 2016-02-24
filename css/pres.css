@@ -31,3 +31,48 @@
     box-shadow: none;
     max-height: inherit;
 }
+
+.leaflet-popup-tip-container {
+    margin: 0 auto !important;
+}
+
+.leaflet-popup-content-wrapper {
+    padding: 1px !important;
+    margin: inherit !important;
+}
+
+.leaflet-popup-content {
+    margin: 13px 19px !important;
+    line-height: 1.4 !important;
+}
+
+.leaflet-popup-content h3 {
+    color: #333 !important;
+}
+
+.leaflet-popup-tip {
+    padding: 1px !important;
+    margin: -10px auto 0 !important;
+}
+
+.pulse-marker {
+    stroke: red;
+    stroke-width: 2;
+    stroke-opacity: .5;
+    fill: red;
+    fill-opacity: .9;
+    animation: pulse 2s ease-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+    from {
+        stroke-width: 15;
+        stroke-opacity: 1
+    }
+
+    to {
+        stroke-width: 50;
+        stroke-opacity: 0
+    }
+}
