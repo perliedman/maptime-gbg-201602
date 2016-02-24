@@ -76,3 +76,9 @@
         stroke-opacity: 0
     }
 }
+
+.latitude-label {
+    position: absolute;
+    left: -220px;
+    top: 5%;
+}

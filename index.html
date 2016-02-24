@@ -135,8 +135,24 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                 <section data-state="working-map">
                     <div id="working-map" class="map"></div>
                 </section>
-                <section>
-                    Coordinates
+                <section data-state="coordinates-map">
+                    <div id="coordinates-map" class="map-compact"></div>
+                    <h3 class="fragment longitude-label">
+                        &larr;&nbsp;Longitude (X)&nbsp;&rarr;
+                    </h3>
+                    <h3 class="fragment latitude-label">
+                        &uarr;<br/>
+                        Latitude (Y)<br/>
+                        &darr;
+                    </h3>
+                    <h2 class="fragment">Leaflet is <em>lat/lng order</em></h2>
+                    <pre><span class="fragment highlight javascript">        new L.LatLng(57.7, 11.9)
+        // ...is the same as
+        L.latLng(57.7, 11.9)
+        // ...and also the same as
+        [57.7, 11.9]
+        // ...but not as
+        [11.9, 57.7]</span></pre>
                 </section>
                 <section data-state="layers-map">
                     <div id="layers-map" class="map-compact"></div>
@@ -156,7 +172,18 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                     </aside>
                 </section>
                 <section>
-                    Storing a lot of vector layers - GeoJSON
+                    <h1>Storing Vector Data</h1>
+                    <h1>GeoJSON</h1>
+                    <h3 class="fragment">
+                        <a href="http://geojson.io/#id=gist:anonymous/bd800e63db735f79518d&amp;map=13/57.7042/11.9590">
+                            Example
+                        </a>
+                    </h3>
+                </section>
+                <section>
+                    <h2>Leaflet GeoJSON support</h2>
+                    <pre><span class="fragment highlight javascript">var geojson = {"type": "Point", "coordinates": [57.7, 11.9]};
+L.geoJson(geojson).addTo(map);</span></pre>
                 </section>
                 <section>
                     Interaction &amp; events
@@ -244,6 +271,7 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 
             runOnState('broken-map', window.brokenMap);
             runOnState('working-map', window.workingMap);
+            runOnState('coordinates-map', window.coordinatesMap);
             runOnState('layers-map', window.layersMap);
         </script>
 

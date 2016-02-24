@@ -31,6 +31,23 @@ window.workingMap = (function() {
     };
 })();
 
+window.coordinatesMap = (function() {
+    var map;
+
+    return {
+        start: function() {
+            map = L.map('coordinates-map');
+            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            map.setView([0, 0], 1);
+        },
+        stop: function() {
+            map.remove();
+        }
+    };
+})();
+
 window.layersMap = (function() {
     var steps = [
             function() {
