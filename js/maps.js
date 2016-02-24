@@ -1,3 +1,13 @@
+function formatFunction(fn, codeDiv) {
+    codeDiv.innerText = fn.toString()
+        .replace(/^            \}$/gm, '')
+        .replace(/                (\S)/gm, '$1')
+        .replace(/^function \(\) \{$/gm, '')
+        .replace(/^(.{75}).+$/gm, '$1 ...')
+        .trim();
+    hljs.highlightBlock(codeDiv);
+}
+
 window.brokenMap = (function() {
     var map;
 
@@ -143,13 +153,7 @@ window.layersMap = (function() {
                 var fn = steps[step++];
                 if (!fn) return;
                 fn();
-                codeDiv.innerText = fn.toString()
-                    .replace(/^            \}$/gm, '')
-                    .replace(/                (\S)/gm, '$1')
-                    .replace(/^function \(\) \{$/gm, '')
-                    .replace(/^(.{75}).+$/gm, '$1 &hellip;')
-                    .trim();
-                hljs.highlightBlock(codeDiv);
+                formatFunction(fn, codeDiv);
             });
         },
         stop: function() {
@@ -157,6 +161,38 @@ window.layersMap = (function() {
             map.eachLayer(function(l) { map.removeLayer(l); });
             map.remove();
             codeDiv.innerHTML = '';
+        }
+    };
+})();
+
+window.interactionMap = (function() {
+    var map;
+    var codeDiv = document.querySelector('#interaction-code');
+
+    return {
+        start: function() {
+            var interactionFn = function() {
+                map.on('click', function(e) {
+                    var c = e.latlng;
+                    L.popup()
+                        .setLatLng(c)
+                        .setContent('<h3>You clicked ' + c.lat.toPrecision(6) + ', ' + c.lng.toPrecision(6) + '</h3>')
+                        .openOn(map);
+                });
+            }
+
+            map = L.map('interaction-map');
+            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            map.setView([57.7, 11.96], 13);
+
+            interactionFn();
+
+            formatFunction(interactionFn, codeDiv);
+        },
+        stop: function() {
+            map.remove();
         }
     };
 })();

@@ -14,6 +14,7 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/reveal.css">
         <link rel="stylesheet" href="css/theme/moon.css" id="theme">
         <link rel="stylesheet" href="lib/leaflet/leaflet.css">
@@ -172,7 +173,7 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                     </aside>
                 </section>
                 <section>
-                    <h1>Storing Vector Data</h1>
+                    <h2>Storing Vector Data:</h2>
                     <h1>GeoJSON</h1>
                     <h3 class="fragment">
                         <a href="http://geojson.io/#id=gist:anonymous/bd800e63db735f79518d&amp;map=13/57.7042/11.9590">
@@ -185,14 +186,30 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                     <pre><span class="fragment highlight javascript">var geojson = {"type": "Point", "coordinates": [57.7, 11.9]};
 L.geoJson(geojson).addTo(map);</span></pre>
                 </section>
-                <section>
-                    Interaction &amp; events
+                <section data-state="interactions">
+                    <div id="interaction-map" class="map-compact"></div>
+                    <pre id="interaction-code" class="stretch highlight javascript"></pre>
                 </section>
                 <section>
-                    Plugins
+                    <h1><a href="http://leafletjs.com/plugins.html">Plugins</a></h1>
                 </section>
                 <section>
-                    Leaflet Underneath
+                    <h1><a href="http://leafletjs.com/plugins.html">Docs</a></h1>
+                </section>
+                <section>
+                    <h1>Outside the comfort zone</h1>
+                    <h2 class="fragment">
+                        <a href="http://www.liedman.net/leaflet-underneath/">Leaflet Underneath</a>
+                    </h2>
+                </section>
+                <section>
+                    <h1>Thank you!</h1>
+                    <ul style="list-style: none;">
+                        <li>Per Liedman</li>
+                        <li><i class="fa fa-envelope"></i>&nbsp;<a href="mailto:per.liedman@dotnetmentor.se">per.liedman@dotnetmentor.se</a></li>
+                        <li><i class="fa fa-twitter"></i>&nbsp;<a href="https://twitter.com/liedman/">@liedman</a></li>
+                        <li><i class="fa fa-github"></i>&nbsp;<a href="https://github.com/perliedman/">perliedman</a></li>
+                    </ul>
                 </section>
                 <section>
                     <aside class="notes">
@@ -273,6 +290,7 @@ L.geoJson(geojson).addTo(map);</span></pre>
             runOnState('working-map', window.workingMap);
             runOnState('coordinates-map', window.coordinatesMap);
             runOnState('layers-map', window.layersMap);
+            runOnState('interactions', window.interactionMap);
         </script>
 
     </body>
