@@ -10,9 +10,13 @@ function formatFunction(fn, codeDiv) {
 
 L.Map.addInitHook(function() {
     var slides = document.querySelector('.slides'),
-        zoom = 1/Number(slides.style.zoom);
+        zoom = Number(slides.style.zoom);
 
-    this._container.style.zoom = zoom;
+    if (!zoom) {
+        zoom = Number(slides.style.transform.replace(/.*scale\(([0-9\.]+)\).*/, '$1'));
+    }
+
+    this._container.style.zoom = 1/zoom;
     this.invalidateSize();
 });
 
