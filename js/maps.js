@@ -8,6 +8,14 @@ function formatFunction(fn, codeDiv) {
     hljs.highlightBlock(codeDiv);
 }
 
+L.Map.addInitHook(function() {
+    var slides = document.querySelector('.slides'),
+        zoom = 1/Number(slides.style.zoom);
+
+    this._container.style.zoom = zoom;
+    this.invalidateSize();
+});
+
 window.brokenMap = (function() {
     var map;
 

@@ -47,6 +47,11 @@
                     <h1>Let's Learn <a href="http://leafletjs.com/">Leaflet.js</a>!</h1>
 
                     <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+                    <h3>
+                        <a href="http://www.liedman.net/maptime-gbg-201602/">
+                            http://www.liedman.net/maptime-gbg-201602/
+                        </a>
+                    </h3>
 
                     <p>Per Liedman, Dotnet Mentor</p>
 
@@ -159,17 +164,18 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                     <div id="layers-map" class="map-compact"></div>
                     <pre id="layers-map-code" class="stretch highlight javascript"></pre>
                     <aside class="notes">
-                        Interactive demo of different layer types
-                            * Baselayers
-                            * Markers
-                            * Vector layers
-                                * point
-                                * polyline
-                                * polygon
-                                * circle
-                            * Rearranging layers
-                            * Layers for styling
-                            * Popups
+                        <ul>
+                            <li>Baselayers - backgrounds, but tiles can also be semi-transparent overlays</li>
+                            <li>Markers - for pointing out a location; can be styled (images), can use any HTML; single coordinate</li>
+                            <li>Draggable markers</li>
+                            <li>Line - or polyline, multiple lines connected; array of coordinates</li>
+                            <li>Styled - vectors can be styled (width, color, dashed lines); multiple layers can be used to achieve advanced styling</li>
+                            <li>Ordering layers</li>
+                            <li>Polygon - array of array of coordinates; outer ring/outline, and holes</li>
+                            <li>Circle</li>
+                            <li>Styling by CSS - tricks with HTML/CSS can be applied in Leaflet too</li>
+                            <li>Popups - just a kind of layer, with shortcuts to "bind" to other layers</li>
+                        </ul>
                     </aside>
                 </section>
                 <section>
@@ -194,7 +200,7 @@ L.geoJson(geojson).addTo(map);</span></pre>
                     <h1><a href="http://leafletjs.com/plugins.html">Plugins</a></h1>
                 </section>
                 <section>
-                    <h1><a href="http://leafletjs.com/plugins.html">Docs</a></h1>
+                    <h1><a href="http://leafletjs.com/reference.html">Docs</a></h1>
                 </section>
                 <section>
                     <h1>Outside the comfort zone</h1>
@@ -204,6 +210,11 @@ L.geoJson(geojson).addTo(map);</span></pre>
                 </section>
                 <section>
                     <h1>Thank you!</h1>
+                    <h3>
+                        <a href="http://www.liedman.net/maptime-gbg-201602/">
+                            http://www.liedman.net/maptime-gbg-201602/
+                        </a>
+                    </h3>
                     <ul style="list-style: none;">
                         <li>Per Liedman</li>
                         <li><i class="fa fa-envelope"></i>&nbsp;<a href="mailto:per.liedman@dotnetmentor.se">per.liedman@dotnetmentor.se</a></li>
@@ -211,42 +222,14 @@ L.geoJson(geojson).addTo(map);</span></pre>
                         <li><i class="fa fa-github"></i>&nbsp;<a href="https://github.com/perliedman/">perliedman</a></li>
                     </ul>
                 </section>
-                <section>
-                    <aside class="notes">
-                        X Prerequisites
-                            * HTML
-                            * JavaScript
-                            * Object oriented programming
-                        * What is Leaflet
-                        X Map
-                            * Container
-                            * Factory functions vs. constructors
-                        * Docs
-                        * Layers
-                        * Baselayer, background layer
-                            * static, things that don't change
-                            * also, something you (usually) share with lots of other apps (agnostic)
-                        * Overlays (vector)
-                            * things that change
-                            * examples of vector types (point, polyline, polygon, circle)
-                            * your app-specific data
-                            * Coordinates (lat/lng)
-                        * Markers, popups
-                        * GeoJSON
-                        * Interactions, events
-                        * Plugins
-                        * Leaflet Underneath
-                    </aside>
-                </section>
-
             </div>
 
         </div>
 
         <script src="lib/js/head.min.js"></script>
         <script src="js/reveal.js"></script>
-        <script src="js/maps.js"></script>
         <script src="lib/leaflet/leaflet.js"></script>
+        <script src="js/maps.js"></script>
 
         <script>
 
